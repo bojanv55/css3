@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Naslov</title>
+        <link href="stil.css" rel="stylesheet" media="screen"/>
+        <script defer src="skripta.js"></script>
+        <style media="print, screen">
+            @import url(nesto.css) print and (color);
+            em{
+                color: red;
+            }
+
+            @media projection{
+                body{
+                    background: yellow;
+                }
+            }
+
+            @supports (display: grid) and ((shape-outside: circle()) or (-webkit-shape-outside: circle())){
+                em{
+                    color: green;
+                }
+            }
+
+            *.klasa {   /* *-za sve selektore, podrazumjeva se */
+                color: red;
+            }
+
+            .vise{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .klasa{
+                color: blue;
+            }
+
+            .klasa.vise{
+                font-size: 1.5em;
+            }
+
+            h1[class]{  /* h1 element sa bilo kojom klasom*/
+                color:silver;
+            }
+
+            h1[data-nesto][class="ss"]{
+                color:red;
+            }
+
+            p[class^="vise"]{   /* svaki p kome class pocinje sa sttringom vise; img[src|="figure"] - sve slike kojima ime pocinje sa figure- */
+                background-color: aliceblue;
+            }
+
+            blockquote em, p em{ /* samo da je potomak bilo gdje u hijerarhiji */
+                background-color: aquamarine;
+            }
+
+            p > em{
+                background-color: bisque; /* samo ako je direct child */
+            }
+
+            h1 + p{ /* p na istom nivou kao h1 iza h1 */
+                background-color: brown;
+            }
+
+            h1 ~ p{ /* svaki p iza h1 koji ima istog parenta */
+                border: 1px solid;
+            }
+
+            a:link:hover{
+                color:red;
+            }
+            a:visited:hover{
+                color: maroon;
+            }
+
+          /*  *:empty{ /* cak i img ce biti display none 
+                display: none;
+            }*/
+
+            img:only-child{
+                border: 1px solid blue;
+            }
+
+            img:only-of-type{ /* ako postoji samo jedan element ovog tipa */
+                margin: 50px;
+            }
+
+            .k1 li:first-child{
+                background-color: red;
+            }
+
+            /*.k1 li:nth-child(2n + 1)   /* svaki drugi element */
+            .k1 li:nth-child(even){ /* or odd */
+                background-image: url("fig1.png");
+            }
+
+            .k1 li:last-child{
+                background-color: blue;
+            }
+
+            table:first-of-type{
+                border: 1px;
+            }
+
+            /* :focus :hover :active */
+
+            body :hover{
+                background: yellow;
+            }
+
+            :enabled{
+                background-color: green;
+            }
+
+            :disabled{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p>OVAJ NIJE IZA H1</p>
+        <h1 data-nesto="asd" class="ss">A</h1>
+        <h1 class="xx">B</h1>
+        <p>some text <em>is inline</em> not</p>
+        <p class="vise klasa">nesto</p>
+        <blockquote>some sportradar quote <em>em qte</em> not</blockquote>
+        <p>ovaj ne?</p>
+        <p><a href="sdfsdf">link</a></p>
+
+        <p>
+            <img src="fig1.png"/>
+        </p>
+        <p>
+            <img src="fig1.png"/>
+            <img src="fig1.png"/>
+            <em>and I</em>
+        </p>
+        <ul class="k1">
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+        <input type="text"/>
+        <input type="text" disabled>
+    </body>
+</html>
