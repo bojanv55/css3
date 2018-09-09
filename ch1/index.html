@@ -162,6 +162,15 @@
                 content: "]]";
                 color:silver;
             }
+
+            #menu{
+                color: red;
+            }
+            #menu a:link{
+                color: inherit; /* use color from parent element */
+            }
+
+            /* order pseudo klasa :link :visited :focus :hover :active */
         </style>
     </head>
     <body>
@@ -190,5 +199,10 @@
         <input type="text"/>
         <input type="text" disabled>
         <input type="email" required/>
+
+        <p id="menu">
+            <a href="df">one</a>
+            <a href="sdf">two</a>
+        </p>
     </body>
 </html>
