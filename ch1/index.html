@@ -116,10 +116,56 @@
             :disabled{
                 background-color: red;
             }
+
+            input[type="email"]:focus{
+                background-position: 100% 50%;
+                background-repeat: no-repeat;
+            }
+
+            input[type="email"]:focus:invalid{
+                background-image: url("fig1.png");
+            }
+
+            input[type="email"]:focus:valid{
+                background-image: none;
+            }
+            /* :out-of-range :in-range */
+            /* :read-only :read-write */
+
+            :target{
+                background-color: darkgreen; /* ako se posjeti sa index.html#trgt */
+            }
+
+            .k1 > li:not(.some){
+                font-style: italic;
+            }
+
+            #trgt{
+                display: block; /* mora biti block za ::first-letter */
+            }
+        
+            #trgt::first-letter{
+                color:red;
+                font-size: 200%;
+            }
+
+            #trgt::first-line{
+                background-color: aqua;
+            }
+
+            #trgt::before{
+                content: "[[";
+                color:blue;
+            }
+
+            #trgt::after {
+                content: "]]";
+                color:silver;
+            }
         </style>
     </head>
     <body>
-        <p>OVAJ NIJE IZA H1</p>
+        <p id="trgt">OVAgJ NIJE IZA H1</p>
         <h1 data-nesto="asd" class="ss">A</h1>
         <h1 class="xx">B</h1>
         <p>some text <em>is inline</em> not</p>
@@ -138,10 +184,11 @@
         </p>
         <ul class="k1">
             <li>one</li>
-            <li>two</li>
+            <li class="some">two</li>
             <li>three</li>
         </ul>
         <input type="text"/>
         <input type="text" disabled>
+        <input type="email" required/>
     </body>
 </html>
